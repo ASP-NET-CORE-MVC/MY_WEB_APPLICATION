@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Models.Cms.PostCategory>
+
+@{
+	string strTitle = "Index";
+
+	ViewData["Title"] = strTitle;
+}
+
+<h2>
+	@strTitle
+</h2>
+
+<div class="row">
+	<div class="col-xs-12">
+		<a asp-action="@nameof(MY_WEB_APPLICATION.Areas.Cms.Controllers.PostCategoriesController.Create)">Create New</a>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12 table-responsive">
+		<table class="table table-bordered table-condensed table-striped table-hover">
+			<thead>
+				<tr>
+					<th></th>
+					<th>
+						@Html.DisplayNameFor(model => model.Code)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Name)
+					</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>
+							<a asp-action="Details" asp-route-id="@item.Id">Details</a>
+							|
+							<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+							|
+							<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Code)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Name)
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
