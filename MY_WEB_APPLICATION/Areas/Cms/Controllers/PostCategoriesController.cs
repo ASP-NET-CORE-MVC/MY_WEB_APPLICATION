@@ -3,10 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MY_WEB_APPLICATION.Areas.Cms.Controllers
 {
-	[Microsoft.AspNetCore.Mvc.Area(areaName: "Cms")]
+	[Microsoft.AspNetCore.Mvc.Area(areaName: Infrastructure.Constants.Areas.Cms)]
 	public class PostCategoriesController : Infrastructure.BaseController
 	{
-		public PostCategoriesController(Models.DatabaseContext databaseContext) : base(databaseContext: databaseContext)
+		public PostCategoriesController(Models.DatabaseContext databaseContext) :
+			base(databaseContext: databaseContext)
 		{
 		}
 
